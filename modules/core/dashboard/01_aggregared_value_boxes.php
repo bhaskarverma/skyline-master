@@ -95,7 +95,7 @@ for($i=0; $i<count($trips_tot); $i++)
 $rtrip_arr = array_unique($rtrip_arr);
 $rtrip_arr = array_values($rtrip_arr);
 $rtrip_ids = implode(",",$rtrip_arr);
-$sql = $pdo->prepare("SELECT SUM(`km_end` - `km_start`) AS `total_km` FROM `round_trip` WHERE `round_trip_id` IN (".$rtrip_ids.")");
+$sql = $pdo->prepare("SELECT SUM(`km_end` - `km_start`) AS `total_km` FROM `round_trip` WHERE `round_trip_id` IN ('".$rtrip_ids."'')");
 $sql->execute();
 $total_km = $sql->fetch()['total_km'];
 
