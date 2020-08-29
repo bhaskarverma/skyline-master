@@ -70,11 +70,10 @@ $modules_not_in_db = array_values(array_diff($modules_in_fs, $modules_in_db));
       </thead>
       <tbody>
         <?php
-
+             echo dir(getcwd())->path;
             for($i=0;$i<count($modules_not_in_db);$i++)
             {
                 $module_details = include '../../modules/'.$modules_not_in_db[$i].'/manifest.php';
-                echo dir(getcwd())->path;
                 echo '<tr>';   
                 echo '<td data-vehicle='.$modules_not_in_db[$i].'>'.$modules_not_in_db[$i].'</td>'; 
                 echo '<td>'.$module_details['version'].'</td>';
