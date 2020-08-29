@@ -64,6 +64,7 @@ $modules_not_in_db = array_values(array_diff($modules_in_fs, $modules_in_db));
       <thead>                  
         <tr>
           <th>Recently Added Modules</th>
+          <th>Module Version</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -72,8 +73,10 @@ $modules_not_in_db = array_values(array_diff($modules_in_fs, $modules_in_db));
 
             for($i=0;$i<count($modules_not_in_db);$i++)
             {
+                $module_details = include '../../modules/'.$modules_not_in_db[$i].'/manifest.php';
                 echo '<tr>';   
                 echo '<td data-vehicle='.$modules_not_in_db[$i].'>'.$modules_not_in_db[$i].'</td>'; 
+                echo '<td>'.$module_details['version'].'</td>';
                 echo '<td><button type="button" onclick="add_module_to_db(\''.$modules_not_in_db[$i].'\')" class="btn btn-primary">Add to Database</button></td>';
                 echo '</tr>';
             }
