@@ -300,6 +300,10 @@ $average_all_vehicles_table_body .= '</tbody></table>';
 
 $average_all_vehicles_html = $box_html;
 $average_all_vehicles_html = str_replace("{{text}}", "Total Average", $average_all_vehicles_html);
+if($total_fuel_ltr == 0) // Division by zero error fix
+{
+	$total_fuel_ltr = 1;
+}
 $average_all_vehicles_html = str_replace("{{value}}", round($total_km / $total_fuel_ltr, 2), $average_all_vehicles_html);
 $average_all_vehicles_html = str_replace("{{box-type}}", "bg-success", $average_all_vehicles_html);
 $average_all_vehicles_html = str_replace("{{icon}}", "fa fa-tint", $average_all_vehicles_html);
