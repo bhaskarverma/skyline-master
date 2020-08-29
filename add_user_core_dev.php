@@ -1,6 +1,6 @@
 <?php
 
-include("/modules/core/database/db_config.php");
+include("./modules/core/database/db_config.php");
 
 $gid = 1;
 $user_uname = 'bverma';
